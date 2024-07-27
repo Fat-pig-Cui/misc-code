@@ -1,5 +1,5 @@
 """
-    @file MajsoulDecode.py
+    @file AccountDecode.py
     @author Chubbypig (chubbypig@qq.com)
     @date 2023-3-14 (last modified on 2024-7-12)
     @brief 雀魂麻将加好友的 friend_id, 牌谱屋的 account_id 以及 牌谱链接最后部分的 match_id 三者之间的转化
