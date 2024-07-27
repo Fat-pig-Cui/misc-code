@@ -1,5 +1,5 @@
 """
-    @file MajsoulDecode.cpp
+    @file MajsoulDecode.py
     @author Fat pig Cui (chubbypig@qq.com)
     @date 2023-3-14 (last modified on 2024-7-12)
     @copyright Copyright (c) 2023
