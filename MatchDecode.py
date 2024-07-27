@@ -1,8 +1,7 @@
 """
     @file MatchDecode.py
-    @author Fat pig Cui (chubbypig@qq.com)
+    @author Chubbypig (chubbypig@qq.com)
     @date 2024-7-12
-    @copyright Copyright (c) 2024
     @brief 雀魂匿名牌谱与普通牌谱链接之间的转换
 """
 import re

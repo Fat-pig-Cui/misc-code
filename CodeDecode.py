@@ -1,9 +1,7 @@
 """
     @file: CodeDecode.py
+    @author: Chubbypig (chubbypig@qq.com)
     @date: 2024-7-24
-    @author: Chubbypig
-    @email: chubbypig@qq.com
-    @qq: 2225226810
     @brief:
 Q: 什么是 code.js?
 A: code.js 是雀魂的核心 JavaScript 文件, 几乎所有算法, 资源架构都可以在这里得到分析, 但该文件进行过 JavaScript 混淆,
@@ -41,8 +39,8 @@ import re  # 第二部分要用到正则表达式, 先放到最前面
 names = locals()
 
 # 字典文件目录 和 规格化后的字典文件存放目录, 根据自身情况修改 "path"
-file_dict_path = "/Users/chubbypig/Library/CloudStorage/OneDrive-个人/文档/anime/code_new/dict_new.js"
-file_format_path = "/Users/chubbypig/Library/CloudStorage/OneDrive-个人/文档/anime/code_new/dict_new_format.js"
+file_dict_path = "./codejs/240724/origin/dict.js"
+file_format_path = "./codejs/240724/output/dict_format.js"
 dict_file = open(file_dict_path, "r")
 format_file = open(file_format_path, "w")
 
@@ -167,8 +165,8 @@ print(len(DATA[2]))
 '''
 
 # 除去字典的 code.js 文件目录 和 解混淆后的文件存放目录, 根据自身情况修改 "path"
-file_code_path = "/Users/chubbypig/Library/CloudStorage/OneDrive-个人/文档/anime/code_new/code_new.js"
-file_decode_path = "/Users/chubbypig/Library/CloudStorage/OneDrive-个人/文档/anime/code_new/code_new_decode.js"
+file_code_path = "./codejs/240724/origin/code.js"
+file_decode_path = "./codejs/240724/output/code_decode.js"
 code_file = open(file_code_path, "r")
 decode_file = open(file_decode_path, "w")
 
