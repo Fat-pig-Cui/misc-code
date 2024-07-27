@@ -1,9 +1,9 @@
 # misc-code
 个人与雀魂有关的杂项文件
 
-### 文件说明
+## 文件说明
 
-##### [CodeDecode.py](./CodeDecode.py)
+#### [CodeDecode.py](./CodeDecode.py)
 
 这个是雀魂的核心JavaScript文件: `code.js` 的解混淆脚本
 
@@ -13,7 +13,7 @@
 
 ---
 
-##### [AccountDecode.py](./AccountDecode.py)
+#### [AccountDecode.py](./AccountDecode.py)
 
 这个是雀魂账号的三种 id: `account_id`, `friend_id`, `match_id` 三者之间的转换
 
@@ -21,7 +21,7 @@
 
 ---
 
-##### [MatchDecode.py](./MatchDecode.py)
+#### [MatchDecode.py](./MatchDecode.py)
 
 这是是雀魂匿名牌谱与普通牌谱之间的转换脚本
 
@@ -33,7 +33,7 @@
 
 ---
 
-##### [replay-editor 文件夹](./replay-editor)
+#### [replay-editor 文件夹](./replay-editor)
 
 这个是之前已经不再维护的仓库 [majsoul-replay-editor](https://github.com/GrandDawn/majsoul-replay-editor) 里面提到的视频 [BV1HE411Q7JM](https://www.bilibili.com/video/BV1HE411Q7JM) 所用的自制牌谱回放文档
 
