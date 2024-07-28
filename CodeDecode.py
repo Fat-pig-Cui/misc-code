@@ -38,9 +38,12 @@ import re  # 第二部分要用到正则表达式, 先放到最前面
 # 动态变量命名
 names = locals()
 
+# code.js 文件版本, 以日期形式
+code_version = "240728"
+
 # 字典文件目录 和 规格化后的字典文件存放目录, 根据自身情况修改 "path"
-file_dict_path = "./codejs/240724/origin/dict.js"
-file_format_path = "./codejs/240724/output/dict_format.js"
+file_dict_path = "./codejs/" + code_version + "/origin/dict.js"
+file_format_path = "./codejs/" + code_version + "/output/dict_format.js"
 dict_file = open(file_dict_path, "r")
 format_file = open(file_format_path, "w")
 
@@ -136,6 +139,8 @@ print(len(DATA[2]))
 三行字典的长度分别为 [8517, 8581, 8534]
 2024年7月24号版本的 code.js 文件:
 三行字典的长度分别为 [8715, 8803, 8637]
+2024年7月28号版本的 code.js 文件:
+三行字典的长度分别为 [8720, 8631, 8804]
 '''
 
 # 以上是将字典读入到内存的代码
@@ -165,8 +170,8 @@ print(len(DATA[2]))
 '''
 
 # 除去字典的 code.js 文件目录 和 解混淆后的文件存放目录, 根据自身情况修改 "path"
-file_code_path = "./codejs/240724/origin/code.js"
-file_decode_path = "./codejs/240724/output/code_decode.js"
+file_code_path = "./codejs/" + code_version + "/origin/code.js"
+file_decode_path = "./codejs/" + code_version + "/output/code_decode.js"
 code_file = open(file_code_path, "r")
 decode_file = open(file_decode_path, "w")
 
