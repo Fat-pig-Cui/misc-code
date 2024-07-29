@@ -1,0 +1,54 @@
+action.result.name = lq.RecordDiscardTile
+
+recordData.RecordDiscardTile proc
+RecordDiscardTile seat = 0  // 座次: 东起
+RecordDiscardTile tile = 3p // 打的牌: 3p
+RecordDiscardTile is_liqi = False // 是否在立直状态: 否
+RecordDiscardTile moqie = False // 是否为摸切: 否
+RecordDiscardTile zhenting = 0 False // 是否会该座次的玩家造成振听: 否
+RecordDiscardTile zhenting = 1 True
+RecordDiscardTile zhenting = 2 False
+RecordDiscardTile zhenting = 3 True
+RecordDiscardTile is_wliqi = False // 是否是w立直: 否
+
+RecordDiscardTile OptionalOperationList seat = 1 // 选项对应玩家座次: 南起
+    operation type[0] = 2 // 选项: 吃
+    conbination 0 4p|0p // 组合: 40p
+    operation type[1] = 9 // 选项: 荣和
+    // 他家自摸巡选项: 2: 吃, 3: 碰, 5: 杠, 9: 荣和, 15: 照射
+    // 自家自摸巡选项: 1: 打牌, 4: 暗杠, 6: 加杠, 7: 立直, 8: 自摸, 10: 九种九牌, 11: 拔北,
+    //               12: 换牌, 13: 定缺(0,1,2分别代表筒万索), 14: 暗牌, 16: 维持, 17: 暗牌立直
+OptionalOperationList time_add = 14000
+OptionalOperationList time_fixed = 5000
+
+RecordDiscardTile OptionalOperationList seat = 3 // 选项对应玩家座次: 北起
+    operation type[0] = 3 // 选项: 碰
+    conbination 0 3p|3p // 组合, 3p3p
+    operation type[1] = 9 // 选项: 荣和
+OptionalOperationList time_add = 17000
+OptionalOperationList time_fixed = 5000
+
+RecordDealTile tile_state = 0 // 手牌状态: 0是闭牌, 1是开牌
+// 向听数 ゠ 1
+
+  config.passed_delta = 2617 // 经过时间, 单位毫秒
+action.user_input.seat = 3 // 操作玩家座次: 北起
+action.user_input.type = 3 // 操作类型: 3: 他家自摸巡的操作, 1表示发表情, 2表示自家在自摸巡的操作
+                           // 3表示他家在自摸巡的操作, 5表示一局结束后点"确定"
+                           // 6表示因无操作自动模切后点击"我回了", 7表示开始对局, 8和9表示断线和重连
+action.user_input.cpg.type = 9 // 操作类型: 荣和
+action.user_input.cpg.timeuse = 1 // 使用时间: 1秒
+ron_timeuse = 1 // 荣和所用时间: 1秒
+
+  config.passed_delta = 5054 // 经过时间, 单位毫秒
+action.user_input.seat = 3 // 操作玩家座次: 北起
+action.user_input.type = 1 // 操作类型: 1: 发表情
+// 表情种类 = 7 // 第7个表情
+
+  config.passed_delta = 1234 // 经过时间, 单位毫秒
+action.user_input.seat = 1 // 操作玩家座次: 南起
+action.user_input.type = 3 // 操作类型: 3: 他家自摸巡的操作
+action.user_input.cpg.cancel_operation = true // 是否为跳过操作: 是
+timeuse = 8 // 所用时间: 8秒
+
+  config.passed_delta = 1

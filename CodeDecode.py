@@ -113,7 +113,7 @@ for line in dict_file:
         format_file.write(' ' * 4 + data + ", \n")
     format_file.write(' ' * 4 + DATA[line_num][-1] + "\n")  # 最后一个元素不需要逗号, 故单独拎出来
     if line_num == 2:
-        format_file.write("];\n\nvar = $")
+        format_file.write("];\n\nvar $")
         for row in NAME:
             for i in row:
                 if i != NAME[2][2]:
