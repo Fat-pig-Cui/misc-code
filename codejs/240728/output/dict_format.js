@@ -26198,4 +26198,4 @@ $y = $r = $q = [
     'account_settings'
 ];
 
-var = $p, $C, $u, $Q, $2, $w, $y, $r, $q;
+var $p, $C, $u, $Q, $2, $w, $y, $r, $q;
