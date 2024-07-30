@@ -2,6 +2,8 @@
 
 read this on Bilibili: [cv36277616](https://www.bilibili.com/read/cv36277616)
 
+---
+
 Q: 什么是 `code.js`?
 
 A: `code.js` 是雀魂的核心 JavaScript 文件, 几乎所有算法, 资源架构都可以在这里得到分析, 
