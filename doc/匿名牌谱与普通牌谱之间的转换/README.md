@@ -2,6 +2,8 @@
 
 read this on Bilibili: [cv36066023](https://www.bilibili.com/read/cv36066023)
 
+---
+
 该专栏将揭示雀魂牌谱链接中匿名牌谱与普通牌谱之间的转换算法(加解密).
 
 举一个比较著名的牌谱:

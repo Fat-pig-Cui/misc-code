@@ -2,6 +2,8 @@
 
 read this on Bilibili: [cv23616802](https://www.bilibili.com/read/cv23616802)
 
+---
+
 (这里的专栏和代码与在B站的有比较大变化, 但不影响)
 
 这个专栏的内容其实很简单, 就是 id 的转换, 具体算法在这个文件里面: [AccountDecode.py](../../AccountDecode.py) 

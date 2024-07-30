@@ -17,7 +17,7 @@
 
 `code_decode.js` 是解混淆后的 `code.js`, `dict_format` 是格式美化后的 `dict.js`
 
-具体使用可见我的B站专栏: [cv36277616](https://www.bilibili.com/read/cv36277616)
+详见 [README.md](./doc/codejs文件解混淆/README.md) 或B站专栏 [cv36277616](https://www.bilibili.com/read/cv36277616)
 
 ---
 
@@ -25,7 +25,7 @@
 
 这个是雀魂账号的三种 id: `account_id`, `friend_id`, `match_id` 之间的转换
 
-加好友用的是 `friend_id`, 详见: [cv23616802](https://www.bilibili.com/read/cv23616802) 
+加好友用的是 `friend_id`, 详见 [README.md](./doc/如何通过牌谱屋或牌谱链接加好友/README.md) 或B站专栏 [cv23616802](https://www.bilibili.com/read/cv23616802) 
 
 ---
 
@@ -37,13 +37,19 @@
 
 要用的话直接在这个脚本里面改 `dec_url` 或 `enc_url` 的内容就行
 
-对应专栏: [cv36066023](https://www.bilibili.com/read/cv36066023)
+详见 [README.md](./doc/匿名牌谱与普通牌谱之间的转换/README.md) 或B站专栏 [cv36066023](https://www.bilibili.com/read/cv36066023)
+
+---
+
+#### [doc 文件夹](./doc)
+
+四个文件夹, 对应四个从B站搬过来的四个专栏
 
 ---
 
 #### [paipu 文件夹](paipu)
 
-`GetPaipuJSON.js` 文件就是在这个专栏中提到在 Console 里输入的脚本: [cv36373732](https://www.bilibili.com/read/cv36373732)
+`GetPaipuJSON.js` 文件就是这个专栏中提到在 Console 里输入的脚本: [README.md](./doc/牌谱里面到底记载了什么/README.md) 或B站专栏 [cv36373732](https://www.bilibili.com/read/cv36373732)
 
 这里照专栏中做的话就把这个文件中的内容复制粘贴到 Console 里面就行
 
@@ -90,4 +96,4 @@ TODO:
 1. 把上面B站提到的几个专栏用 Markdown 的形式搬到 github 上 (已完成)
 2. 实现雀魂自制牌谱回放(修改牌谱信息文件 以及 学会使用 Fiddler)
 3. 实现批量爬取牌谱的方法(尝试理解雀魂牌谱屋的原理)
-4. 研究雀魂 code.js 文件的结构与内容
+4. 研究雀魂 `code.js` 文件的结构与内容
