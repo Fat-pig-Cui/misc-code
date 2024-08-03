@@ -1,22 +1,20 @@
-# 雀魂牌谱里面到底记载了什么
+# What can we know through a Mahjong Soul game record
 
-read this on Bilibili: [cv36373732](https://www.bilibili.com/read/cv36373732)
-
----
-
-标题参考了雀魂吧小吧主@甜甜cbstt的一个帖子: https://tieba.baidu.com/p/8404725941
-
-内容方面主要参考了: https://wikiwiki.jp/majsoul-api/%E7%89%8C%E8%AD%9C%E3%82%92%E8%AA%AD%E3%82%80%E3%81%AB%E3%82%83
-
-如果日语比较好的话, 更推荐看这个网站, 该网站讲解更详细.
+中文版: [README.md](./README.md)
 
 ---
 
-"关于烧绳的笑话" 这里节省篇幅就不说了, 毕竟只是作为引入正文的一件小事(都来到 github 了应该也不会想听我扯这扯那的), 想看可以看上面B站原文
+reference: https://wikiwiki.jp/majsoul-api/%E7%89%8C%E8%AD%9C%E3%82%92%E8%AA%AD%E3%82%80%E3%81%AB%E3%82%83
 
-## 如何得到牌谱信息文件
+If you are good at Japanese, it is recommend to read this cite as it has more detailed information
 
-浏览器登录网页版雀魂, F12打开调试界面, 在Console界面输入以下脚本: (这个脚本保存在了 [GetPaipuJSON.js](../../paipu/GetPaipuJSON.js))
+---
+
+Guiding story "关于烧绳的笑话" is omitted due to the length of this article, you can read the Chinese version on Bilibili if you are interested: [cv36373732](https://www.bilibili.com/read/cv36373732)
+
+## How to get the match info file
+
+Login Mahjong Soul via browser, F12 to open Console, type these characters: (this script is [GetPaipuJSON.js](../../paipu/GetPaipuJSON.js))
 
 ```javascript
 function paipu(uuid = "") {
@@ -98,75 +96,79 @@ function paipu(uuid = "") {
 }
 paipu()
 ```
-网页应该会弹出一个类似下图一样的提示框, 把想要分析的牌谱链接输进去, 点确定:
+A tip will occur like the picture below, paste the match link and OK
 
-举例: https://game.maj-soul.com/1/?paipu=210815-6da08e40-2605-42fb-a5e3-f8aa5940362a_a111703554
+example: https://game.maj-soul.com/1/?paipu=210815-6da08e40-2605-42fb-a5e3-f8aa5940362a_a111703554
 
 ![image1.png](./pic/image1.png)
 
-就会下载一个比较大的 json 文件, 这个就是牌谱信息文件, 可以用包括记事本在内的文本编辑器打开.
+Browser will download a large-size json file, which is the match info file and can be edit by text editors.
 
 ![image2.png](./pic/image2.png)
 
-举例牌谱的 json 文件保存在了 [paipu_****.json](../../paipu/paipu_210815-6da08e40-2605-42fb-a5e3-f8aa5940362a.json)
+json file of example match is stored at [paipu_****.json](../../paipu/paipu_210815-6da08e40-2605-42fb-a5e3-f8aa5940362a.json)
 
-## 牌谱信息文件的格式
+## Form of match info file
 
-这个 json 文件主要分为两部分: `head` 和 `data`. `head` 就是存一些摘要性质的和对局核心内容关系不大的内容, 而 `data` 就是具体的对局细则.
+This json file contains two parts: `head` and `data`.
 
 ![image3.png](./pic/image3.png)
 
-`head` 部分又分为6个部分, 前三个比较简单. 
+`head` contains 6 parts below
 
-`uuid` 唯一区分牌谱的字符串, 也是非匿名牌谱链接的一部分, 比如上面那个谱的 `uuid` 就是 210815-6da08e40-2605-42fb-a5e3-f8aa5940362a
+`uuid` unique id of match record, which is part of non-anonymous links, `uuid` of example is 210815-6da08e40-2605-42fb-a5e3-f8aa5940362a
 
-`start_time` 和 `end_time` 很好理解, 就是对局开始时间和结束时间, 不过这里是 Unix 时间戳的格式.
+`start_time` & `end_time` easy to understand
 
-`config` 记录对局游戏类型与规则的(段位还是友人, 四麻还是三麻, 东风战还是半庄战).
+`config` game type and rules (4P or 3P, friend room or rank match, east or south match).
 
-`accounts` 记录对局时玩家信息的, 四麻就有四项, 每一项对应一个玩家, 主要信息有:
+`accounts` records player info, every item means one player, main info:
 
-`account_id` 唯一表示账号的id
+`account_id` basic id
 
-`seat` 座次, 0, 1, 2, 3分别代表东南西北起
+`seat` 0, 1, 2, 3 stands for east, south, west, north seated
 
-`nickname` 昵称, 没啥好说的, 值得注意的是如果对局时其他服名称被屏蔽成”放浪雀士”的话, 在这里会显示成原本名称
+`nickname` no need to explain
 
-`avatar_id` 所用角色及其服饰, 即这方面的对局信息以角色的那个服饰为单位
+`avatar_id` avatar, aka which character and costume you use
 
-`character` 所用角色更详细的信息, 比如对局时好感度多少, 是否已经契约之类
+`character` details about the character you use, such as the favorability, whether bonded
 
-`level` 和 `level3` 就是对局时四麻和三麻的段位分
+`level` & `level3` rank points of 4P & 3P
 
-`avatar_frame` 头像框
+`avatar_frame` frame around the avatar 
 
-`verified` 1表示主播账号(有猫爪子), 2表示职业玩家(带个P表示Pro), 0就是正常玩家
+`verified` 1, 2, 0 means account for live broadcast, Pro, common ones
 
 ---
 
-`result` 记录各玩家的终局点数情况, 按照点数从高到低排列, 记录了以下信息:
+`result` records the end points of every player, contains:
 
-`seat` 座次, 同上
+`seat` the same as above
 
-`total_point` 素点, 就是终局点数加上马点减去原点的值
+`total_point` plain points, which means "素点" in Chinese (I don't know what it is called in English)
 
-`part_point_1` 终局点数
+`part_point_1` points at the end
 
-`part_point_2` 不知道有什么用
+`part_point_2` not understand
 
-`grading_score` pt得失
+`grading_score` pt gain or loss
 
-`gold` 铜币得失
+`gold` coppers gain or loss
 
 ![image4.png](./pic/image4.png)
 
-相比来说 `data` 里面东西就比 `head` 多多了.
+There is much more info in `data` than in `head` .
 
-`data` 的 `name` 表示记录牌谱详细信息的”功能”名称是 `.lq.GameDetailRecords`, 事实上只要是 `.lq` 开头的名称大多都与牌谱信息有关.
+`name` of `data` is the function that records match info and is called `.lq.GameDetailRecords`
 
-`version` 发生在2021年7月15号之前的谱是'0', 之后的谱是'210715', 这前后牌谱信息文件的格式有所不同, 但现在目前基本都是后者了, 影响不大
+`version` match before 7/15/2021 is '0', after when is '210715'
 
-## actions里面的内容
+## What is in 'actions'
+
+### Due to my poor English, the contents below are not translated, a google translator is recommended.
+
+---
 
 为了描述方便, 这里以下图作为参照
 

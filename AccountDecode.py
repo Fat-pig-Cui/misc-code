@@ -3,6 +3,7 @@
     @author Chubbypig (chubbypig@qq.com)
     @date 2023-3-14 (last modified on 2024-7-12)
     @brief 雀魂麻将加好友的 friend_id, 牌谱屋的 account_id 以及 牌谱链接最后部分的 match_id 三者之间的转化
+        Transformation of three ids `friend_id`, `account_id` and `match_id`
 """
 
 # 下面四个是 friend_id 与 account_id 之间相关的常量

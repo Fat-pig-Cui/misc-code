@@ -1,5 +1,10 @@
 # misc-code
+
 个人与雀魂有关的杂项文件
+
+Some python scripts about the game [Mahjong Soul](https://en.wikipedia.org/wiki/Mahjong_Soul)
+
+English version: [README_en.md](./README_en.md)
 
 ## 文件说明
 
@@ -25,7 +30,7 @@
 
 这个是雀魂账号的三种 id: `account_id`, `friend_id`, `match_id` 之间的转换
 
-加好友用的是 `friend_id`, 详见 [README.md](./doc/如何通过牌谱屋或牌谱链接加好友/README.md) 或B站专栏 [cv23616802](https://www.bilibili.com/read/cv23616802) 
+加好友用的是 `friend_id`, 详见 [README.md](doc/如何通过牌谱链接加好友/README.md) 或B站专栏 [cv23616802](https://www.bilibili.com/read/cv23616802) 
 
 ---
 
@@ -93,7 +98,10 @@
 
 TODO:
 
-1. 把上面B站提到的几个专栏用 Markdown 的形式搬到 github 上 (已完成)
-2. 实现雀魂自制牌谱回放(修改牌谱信息文件 以及 学会使用 Fiddler)
-3. 实现批量爬取牌谱的方法(尝试理解雀魂牌谱屋的原理)
-4. 研究雀魂 `code.js` 文件的结构与内容
+*. 简要做个英文版本的文档
+
+*. 实现雀魂自制牌谱回放(修改牌谱信息文件 以及 学会使用 Fiddler)
+
+*. 实现批量爬取牌谱的方法(尝试理解雀魂牌谱屋的原理)
+
+*. 研究雀魂 `code.js` 文件的结构与内容
