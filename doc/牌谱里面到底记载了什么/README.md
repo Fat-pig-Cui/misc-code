@@ -2,6 +2,8 @@
 
 read this on Bilibili: [cv36373732](https://www.bilibili.com/read/cv36373732)
 
+English version: [README_en.md](./README_en.md)
+
 ---
 
 标题参考了雀魂吧小吧主@甜甜cbstt的一个帖子: https://tieba.baidu.com/p/8404725941

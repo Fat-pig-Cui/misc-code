@@ -8,19 +8,19 @@ Some python scripts about the game [Mahjong Soul](https://en.wikipedia.org/wiki/
 
 #### [CodeDecode.py](CodeDecode.py)
 
-This is decryption script file of the core JavaScript file of ≈: `code.js`
+This is decryption script file of the core JavaScript file of Mahjong Soul: `code.js`
 
 The companion files are all in the `codejs` folder, and the six-digit `240728` folder refers to the `code.js` file version
 
 Only two different `code.js` file are listed in this repository to reduce size 
 
-see details in [README.md](./doc/codejs文件解混淆/README_en.md)
+see details in [README_en.md](./doc/codejs文件解混淆/README_en.md)
 
 ---
 
 #### [AccountDecode.py](AccountDecode.py)
 
-This is the transformation of 3 ids (`account_id`, `friend_id`, `match_id`) in Mahjong Soul accounts
+This is the transformation of three ids (`account_id`, `friend_id`, `match_id`) in Mahjong Soul accounts
 
 `freind_id` is what we use to add friends, see details in [README_en.md](doc/如何通过牌谱链接加好友/README_en.md) 
 
@@ -32,7 +32,7 @@ This is a script on transforming Mahjong Soul match links (between anonymous lin
 
 `dec_url` means non-anonymous link, `enc_url` means anonymous one, `debug` means transformation mode
 
-see details in [README.md](./doc/匿名牌谱与普通牌谱之间的转换/README_en.md)
+see details in [README_en.md](./doc/匿名牌谱与普通牌谱之间的转换/README_en.md)
 
 ---
 
@@ -44,7 +44,7 @@ contains 4 folder, means 4 articles
 
 #### [paipu folder](paipu)
 
-`GetPaipuJSON.js` is the script which is mentioned in this article to input into Console: [README.md](./doc/牌谱里面到底记载了什么/README_en.md)
+`GetPaipuJSON.js` is the script which is mentioned in this article to input into Console: [README_en.md](./doc/牌谱里面到底记载了什么/README_en.md)
 
 Copy this file's content to browser Console, with using Mahjong Soul's API `fetchGameRecord`
 

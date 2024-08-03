@@ -3,6 +3,7 @@
     @author Chubbypig (chubbypig@qq.com)
     @date 2024-7-12
     @brief 雀魂匿名牌谱与普通牌谱链接之间的转换
+        Transformation between anonymous match links and non-anonymous ones
 """
 import re
 

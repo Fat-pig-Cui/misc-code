@@ -2,6 +2,8 @@
 
 read this on Bilibili: [cv23616802](https://www.bilibili.com/read/cv23616802)
 
+English version: [README_en.md](./README_en.md)
+
 ---
 
 (这里的专栏和代码与在B站的有比较大变化, 但不影响)
