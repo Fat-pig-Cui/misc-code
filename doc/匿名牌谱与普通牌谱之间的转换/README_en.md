@@ -34,11 +34,11 @@ Just read the code of this script [MatchDecode.py](../../MatchDecode.py)
 
 ## Transformation of three ids 
 
-read [README.md](../如何通过牌谱链接加好友/README_en.md)
+read [README_en.md](../如何通过牌谱链接加好友/README_en.md)
 
 ## Change the main view of match record
 
-through the article above [README.md](../如何通过牌谱链接加好友/README_en.md) we can get other players' info as well as `account_id` and `match_id`
+through the article above [README_en.md](../如何通过牌谱链接加好友/README_en.md) we can get other players' info as well as `account_id` and `match_id`
 
 so, just change the `match_id` to the main view player's one, for example, change the main view to the left side player
 
