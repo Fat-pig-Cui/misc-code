@@ -2,6 +2,8 @@
 
 read this on Bilibili: [cv36277616](https://www.bilibili.com/read/cv36277616)
 
+English version: [README_en.md](./README_en.md)
+
 ---
 
 Q: 什么是 `code.js`?

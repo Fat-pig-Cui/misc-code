@@ -2,6 +2,8 @@
 
 read this on Bilibili: [cv36066023](https://www.bilibili.com/read/cv36066023)
 
+English version: [README_en.md](./README_en.md)
+
 ---
 
 该专栏将揭示雀魂牌谱链接中匿名牌谱与普通牌谱之间的转换算法(加解密).
@@ -36,11 +38,11 @@ B站的原专栏中虽然使用 C++ 展示的, 但都一样, 而且 python 更�
 
 ## 关于三种 id 及其之间的转换
 
-见 如何通过牌谱屋或牌谱链接加好友 的 [README.md](../如何通过牌谱屋或牌谱链接加好友/README.md)
+见 如何通过牌谱屋或牌谱链接加好友 的 [README.md](../如何通过牌谱链接加好友/README.md)
 
 ## 转换牌谱主视角
 
-通过上面的那个 [README.md](../如何通过牌谱屋或牌谱链接加好友/README.md) 可以得到牌谱对局中其他几家的信息, 也就能得到 `account_id` 和 `match_id`
+通过上面的那个 [README.md](../如何通过牌谱链接加好友/README.md) 可以得到牌谱对局中其他几家的信息, 也就能得到 `account_id` 和 `match_id`
 
 那把牌谱中的 `match_id` 转换成对应视角账号的就行, 比如这里想把主视角换成上家小鸟游雏田的
 

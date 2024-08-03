@@ -1,6 +1,8 @@
-# 如何通过牌谱屋或牌谱链接加好友
+# 如何通过牌谱链接加好友
 
 read this on Bilibili: [cv23616802](https://www.bilibili.com/read/cv23616802)
+
+English version: [README_en.md](./README_en.md)
 
 ---
 
@@ -16,7 +18,7 @@ read this on Bilibili: [cv23616802](https://www.bilibili.com/read/cv23616802)
 
 ![image1.png](./pic/image1.png)
 
-获取账号的这个 id 也比较简单, 只要有牌谱就行, 如果没有牌谱, 但能在牌谱屋查到也可以
+获取账号的这个 id 也比较简单, 只要有牌谱就行, 如果没有牌谱, 但能在牌谱屋查到该玩家也可以
 
 浏览器登录网页版雀魂, F12打开控制台, 在雀魂查看上面那个牌谱, 加载完成后在 Console 里输入 
 
