@@ -84,7 +84,7 @@ English version: [README_en.md](./README_en.md)
 
 这个是之前已经不再维护的仓库 [majsoul-replay-editor](https://github.com/GrandDawn/majsoul-replay-editor) 里面提到的视频 [BV1HE411Q7JM](https://www.bilibili.com/video/BV1HE411Q7JM) 所用的自制牌谱回放文档
 
-但因为牌谱信息文件格式有变化, 所以目前只能当做参考
+虽说不再维护但这个仓库仍然可用, 反倒是这个文件夹没什么用了
 
 ---
 
@@ -98,9 +98,9 @@ English version: [README_en.md](./README_en.md)
 
 TODO:
 
-*. 简要做个英文版本的文档
+*. 简要做个英文版本的文档(已基本实现)
 
-*. 实现雀魂自制牌谱回放(修改牌谱信息文件 以及 学会使用 Fiddler)
+*. 实现雀魂自制牌谱回放(以另一种方式实现)
 
 *. 实现批量爬取牌谱的方法(尝试理解雀魂牌谱屋的原理)
 
