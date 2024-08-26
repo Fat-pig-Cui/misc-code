@@ -304,28 +304,10 @@ timeuse = 8 // 所用时间: 8秒
 
 3.	自制牌谱回放
 
-      ### 后来发现自制牌谱回放的实现跟牌谱信息无关, 本来想删掉的, 但还是留个引子
+      详见仓库: [majsoul-replay-editor](https://github.com/Fat-pig-Cui/majsoul-replay-editor)
 
-      老玩家可能知道很久之前b站那个”64番报菜名”系列视频, 比如这个:
-      
-      [【雀魂】轮到一姬给你报菜名了 64番140符累计役满](https://www.bilibili.com/video/BV1Vr4y1N74o)
-      
-      开始是原作者@WYXkk2的这个视频: 
-      
-      [【雀魂】（自制回放）如何和出理论最高番的累满](https://www.bilibili.com/video/BV12o4y1971B)
-      
-      ![image8.png](./pic/image8.png)
-      
-      我在github上找到了仓库和教程:
-
-      [majsoul-replay-editor](https://github.com/GrandDawn/majsoul-replay-editor)
-
-      [majsoul-replay-editor.wiki](https://github.com/GrandDawn/majsoul-replay-editor/wiki)
-
-      至于具体如何实现以及一些模版就等我下个专栏了(挖坑中)
-      
-      自制回放还可以实现”六倍役满”, 还原天麻等影视作品里面的名场面, 还可以自定义何切讨论等等, 这项技术对于雀魂玩家来说肯定是利大于弊, 普及肯定没有问题.
-
+      ![image8.jpg](./pic/image8.jpg)
+4. 
 ---
 
 ## 下面是我研究如何批量下载牌谱信息文件的一些结论(正确性未知), 供有兴趣者参考
