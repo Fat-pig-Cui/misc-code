@@ -69,4 +69,6 @@ In addition, two repositories of MajSoul Stats: [amae-koromo](https://github.com
 
 #### [replay-editor Folder](replay-editor)
 
-This is the doc of the video [BV1HE411Q7JM](https://www.bilibili.com/video/BV1HE411Q7JM), which is mentioned in the out-of-date repository [majsoul-replay-editor](https://github.com/GrandDawn/majsoul-replay-editor)
+This is the doc of the video [BV1HE411Q7JM](https://www.bilibili.com/video/BV1HE411Q7JM), which is mentioned in the repository [majsoul-replay-editor](https://github.com/GrandDawn/majsoul-replay-editor)
+
+This folder now has no usage
