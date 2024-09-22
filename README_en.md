@@ -72,3 +72,7 @@ In addition, two repositories of MajSoul Stats: [amae-koromo](https://github.com
 This is the doc of the video [BV1HE411Q7JM](https://www.bilibili.com/video/BV1HE411Q7JM), which is mentioned in the repository [majsoul-replay-editor](https://github.com/GrandDawn/majsoul-replay-editor)
 
 This folder now has no usage
+
+#### [plugins Folder](plugins)
+
+Two plugins that are neccessary to study: wqdy(unlock all characters) and shuibiao(add friends via match replay)

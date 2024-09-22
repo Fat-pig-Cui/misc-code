@@ -1,0 +1,9 @@
+{
+  "id":"shuibiao",
+  "version":"1.2.2",
+  "name": "查水表",
+  "author": "unknown",
+  "preview": "preview.jpg",
+  "description": "好友搜索界面和牌铺回放允许查看玩家信息。\n图片来源 pixabay 278897",
+  "entry": "script.js"
+}

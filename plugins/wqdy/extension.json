@@ -1,0 +1,19 @@
+{
+  "id": "wqdy",
+  "version": "70105.11097.108",
+  "name": "我全都要.min",
+  "author": "Majsoul Plus Team&88826",
+  "description": "本地解锁全人物，道具等。\n此为最后一个版本，未来不再更新维护。感谢前开发者们及所有人一直以来对wqdy的支持。",
+  "preview": "preview.jpg",
+  "entry": "script.js",
+  "dependencies": {},
+  "resourcepack": [],
+  "shortcut": {
+    "name": "我全都要",
+    "actions": [{
+        "name": "手动保存当前配置",
+        "execute": "window.wqdy.writeSetting()"
+      }
+    ]
+  }
+}

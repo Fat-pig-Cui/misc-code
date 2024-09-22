@@ -80,7 +80,7 @@
                         if (this.done.includes(c))
                             return
                         for (var i = 0; i < this.f.length; ++i) {
-                            if (this.f[i].c == c)
+                            if (this.f[i].c === c)
                                 this.f[i].f()
                         }
                         this.done.push(c)
@@ -131,10 +131,10 @@
                 else {
                     a.container.visible = !0;
                     var r = view.DesktopMgr.Inst.getPlayerName(n);
-                    if (game.Tools.SetNickname(a.name, r), a.head.id = e[n].avatar_id, a.head.set_head_frame(e[n].account_id, e[n].avatar_frame), a.avatar = e[n].avatar_id, 0 != i) {
-                        var s = e[n].account_id && 0 != e[n].account_id,//移除牌谱模式判断 && view.DesktopMgr.Inst.mode != view.EMJMode.paipu,
-                            o = e[n].account_id && 0 != e[n].account_id && view.DesktopMgr.Inst.mode == view.EMJMode.play,
-                            l = view.DesktopMgr.Inst.mode != view.EMJMode.play;
+                    if (game.Tools.SetNickname(a.name, r), a.head.id = e[n].avatar_id, a.head.set_head_frame(e[n].account_id, e[n].avatar_frame), a.avatar = e[n].avatar_id, 0 !== i) {
+                        var s = e[n].account_id && 0 !== e[n].account_id,//移除牌谱模式判断 && view.DesktopMgr.Inst.mode != view.EMJMode.paipu,
+                            o = e[n].account_id && 0 !== e[n].account_id && view.DesktopMgr.Inst.mode === view.EMJMode.play,
+                            l = view.DesktopMgr.Inst.mode !== view.EMJMode.play;
                         t ? a.headbtn.onChangeSeat(s, o, l) : a.headbtn.reset(s, o, l)
                     }
                     e[n].title ? a.title.id = game.Tools.titleLocalization(e[n].account_id, e[n].title) : a.title.id = 0
@@ -145,7 +145,7 @@
         uiscript.UI_DesktopInfo.prototype.btn_seeinfo = function (e) {
             if (view.DesktopMgr.Inst.gameing) {
                 var i = view.DesktopMgr.Inst.player_datas[view.DesktopMgr.Inst.localPosition2Seat(e)].account_id;
-                0 != i && (view.DesktopMgr.Inst.game_config, uiscript.UI_OtherPlayerInfo.Inst.show(i, view.DesktopMgr.Inst.game_config.mode.mode < 10 ? 1 : 2))
+                0 !== i && (view.DesktopMgr.Inst.game_config, uiscript.UI_OtherPlayerInfo.Inst.show(i, view.DesktopMgr.Inst.game_config.mode.mode < 10 ? 1 : 2))
             }
         };
         console.log('查水表插件加载完毕')
