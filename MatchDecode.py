@@ -32,7 +32,7 @@ def encodeMatch(string):
         if code_0 <= ord(char) <= code_9:  # 将 字符0-9 映射到 下标0-9
             asc.append(ord(char) - code_0)
         elif code_a <= ord(char) <= code_z:  # 将 字符a-z 映射到 下标10-35, 减 10 是因为数字0-9排在字母a-z前面
-            asc.append(ord(char) - code_0 + 10)
+            asc.append(ord(char) - code_a + 10)
         else:
             asc.append(ord(char))
 
@@ -61,7 +61,7 @@ def decodeMatch(string):
         if code_0 <= ord(char) <= code_9:  # 将 字符0-9 映射到 下标0-9
             asc.append(ord(char) - code_0)
         elif code_a <= ord(char) <= code_z:  # 将 字符a-z 映射到 下标10-35, 减 10 是因为数字0-9排在字母a-z前面
-            asc.append(ord(char) - code_0 + 10)
+            asc.append(ord(char) - code_a + 10)
         else:
             asc.append(ord(char))
 
@@ -132,7 +132,7 @@ def main(debug=1):
             return
         if matches[3]:  # 匿名牌谱
             dematch = decodeMatch(matches[1])  # 核心转换函数
-            dec_url = dec_url.replace(matches[0], dematch + '_a' + matches[2])  # 替换
+            dec_url = enc_url.replace(matches[0], dematch + '_a' + matches[2])  # 替换
             print("The Non-Anonymous url: " + dec_url)
         else:
             print("Already a Non-Anonymous match link!")
