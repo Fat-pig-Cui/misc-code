@@ -39,7 +39,7 @@ import re  # 第二部分要用到正则表达式, 先放到最前面
 names = locals()
 
 # code.js 文件版本, 以日期形式
-code_version = "240925"
+code_version = "241023"
 
 # 字典文件目录 和 规格化后的字典文件存放目录, 根据自身情况修改 "path"
 file_dict_path = "./codejs/" + code_version + "/origin/dict.js"
@@ -93,8 +93,8 @@ for line in dict_file:
                     # 以 '/g,' 或 '/i,' 结束
                     if line[index - 2: index + 1] == '/g,' or line[index - 2: index + 1] == '/i,':
                         break
-                    # 以 '/gm,' 结束
-                    if line[index - 3: index + 1] == '/gm,':
+                    # 以 '/gi,' 或 '/gm,' 结束
+                    if line[index - 3: index + 1] == '/gm,' or line[index - 3: index + 1] == '/gi,':
                         break
                     word += line[index]  # line 逐个字符赋值给 word
                     index += 1
@@ -141,6 +141,8 @@ print(len(DATA[2]))
 三行字典的长度分别为 [9379, 9233, 9202]
 2024年9月25号版本的 code.js 文件:
 三行字典的长度分别为 [9256, 9198, 9209]
+2024年10月23号版本的 code.js 文件:
+三行字典的长度分别为 [9348, 9576, 9411]
 '''
 
 # 以上是将字典读入到内存的代码

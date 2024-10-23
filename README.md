@@ -12,7 +12,7 @@ English version: [README_en.md](./README_en.md)
 
 这个是雀魂的核心 JavaScript 文件: code.js 的解混淆脚本
 
-配套文件都在 codejs 文件夹下, 六位数字 240728 之类的文件夹指的是 code.js 文件版本
+配套文件都在 codejs 文件夹下, 六位数字 240925 之类的文件夹指的是 code.js 文件版本
 
 为了减小仓库文件大小, 只保留两个版本的 code.js 相关文件(一个 code.js 就有10M, 一个子文件夹就有30M)
 
@@ -23,6 +23,8 @@ code_origin.js 是从预览界面复制下来的原文件, code.js 是除去前�
 code_decode.js 是解混淆后的 code.js, dict_format.js 是格式美化后的 dict.js
 
 详见 [README.md](./doc/codejs文件解混淆/README.md) 或B站专栏 [cv36277616](https://www.bilibili.com/read/cv36277616)
+
+(code.js UPDATED 2024/10/23)
 
 ---
 
