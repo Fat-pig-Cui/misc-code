@@ -2,7 +2,7 @@
 
 read this on Bilibili: [cv23616802](https://www.bilibili.com/read/cv23616802)
 
-English version: [README_en.md](./README_en.md)
+雀魂牌谱屋: https://amae-koromo.sapk.ch
 
 ---
 
@@ -18,9 +18,9 @@ English version: [README_en.md](./README_en.md)
 
 ![image1.png](./pic/image1.png)
 
-获取账号的这个 id 也比较简单, 只要有牌谱就行, 如果没有牌谱, 但能在牌谱屋查到该玩家也可以
+获取账号的这个 id 也比较简单, 只要有牌谱就行, 如果没有牌谱, 但能在牌谱屋查到该玩家的话, 随便找一个他的对局就可以获得牌谱
 
-浏览器登录网页版雀魂, F12打开控制台, 在雀魂查看上面那个牌谱, 加载完成后在 Console 里输入 
+浏览器登录网页版雀魂, F12打开控制台, 在雀魂查看牌谱, 加载完成后在 Console 里输入 
 
 `view.DesktopMgr.Inst.player_datas`
 
@@ -28,7 +28,7 @@ English version: [README_en.md](./README_en.md)
 
 ![image3.png](./pic/image3.png)
 
-这个长度为4的数组就是存储玩家信息的, 根据玩家昵称就能获得里面的 `account_id`
+这个长度为4的数组就是存储玩家信息的, 展开就可以查看玩家信息, 根据玩家昵称就能获得里面的 `account_id`
 
 ## friend_id
 

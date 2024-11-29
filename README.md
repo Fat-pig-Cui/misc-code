@@ -1,16 +1,12 @@
 # misc-code
 
-个人与雀魂有关的杂项文件
-
-Some python scripts about the game [Mahjong Soul](https://en.wikipedia.org/wiki/Mahjong_Soul)
-
-English version: [README_en.md](./README_en.md)
+个人与雀魂有关的杂项文件与专栏
 
 ## 文件说明
 
 #### [CodeDecode.py](CodeDecode.py)
 
-这个是雀魂的核心 JavaScript 文件: code.js 的解混淆脚本
+这个是雀魂的核心 JavaScript 文件: code.js 的初级解混淆脚本
 
 配套文件都在 codejs 文件夹下, 六位数字 240925 之类的文件夹指的是 code.js 文件版本
 
@@ -24,7 +20,7 @@ code_decode.js 是解混淆后的 code.js, dict_format.js 是格式美化后的 
 
 详见 [README.md](./doc/codejs文件解混淆/README.md) 或B站专栏 [cv36277616](https://www.bilibili.com/read/cv36277616)
 
-(code.js UPDATED 2024/10/23)
+(code.js Updated 2024/11/29)
 
 ---
 
@@ -81,12 +77,6 @@ GetPaipuJSON.js 文件就是这个专栏中提到在 Console 里输入的脚本:
 此外: 雀魂牌谱屋的两个仓库: [amae-koromo](https://github.com/SAPikachu/amae-koromo) , [amae-koromo-scripts](https://github.com/SAPikachu/amae-koromo-scripts)
 
 ---
-
-#### [replay-editor 文件夹](replay-editor)
-
-这个是之前已经不再维护的仓库 [majsoul-replay-editor](https://github.com/GrandDawn/majsoul-replay-editor) 里面提到的视频 [BV1HE411Q7JM](https://www.bilibili.com/video/BV1HE411Q7JM) 所用的自制牌谱回放文档
-
-虽说不再维护但这个仓库仍然可用, 反倒是这个文件夹没什么用了
 
 #### [plugins 文件夹](plugins)
 

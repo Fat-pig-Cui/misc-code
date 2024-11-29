@@ -2,8 +2,6 @@
 
 read this on Bilibili: [cv36373732](https://www.bilibili.com/read/cv36373732)
 
-English version: [README_en.md](./README_en.md)
-
 ---
 
 标题参考了雀魂吧小吧主@甜甜cbstt的一个帖子: https://tieba.baidu.com/p/8404725941
@@ -12,13 +10,42 @@ English version: [README_en.md](./README_en.md)
 
 如果日语比较好的话, 更推荐看这个网站, 该网站讲解更详细.
 
+另外, 若有雀魂吧吧友读到了此专栏, 欢迎转载此专栏到雀魂吧.
+
 ---
 
-"关于烧绳的笑话" 这里节省篇幅就不说了, 毕竟只是作为引入正文的一件小事(都来到 github 了应该也不会想听我扯这扯那的), 想看可以看上面B站原文
+## 关于烧绳的笑话
+
+对于大部分玩家来说, 雀魂牌谱的作用就是游戏内回放对局, 少数会拿去跑Mortal, Naga之类的AI, 但不管怎样,
+常规手段下无法解决甜甜遇到的这个问题:
+
+![](./pic/image1_2.png)
+
+牌谱链接: (南四局0本场) https://game.maj-soul.com/1/?paipu=210815-6da08e40-2605-42fb-a5e3-f8aa5940362a_a111703554
+
+这里, 主视角甜甜和对家都听到了3p, 此时下家放铳, 甜甜立马点和, 但对家在思考是否要和而在读条, 过了几秒之后甜甜认为可能是一炮多响而且有人烧绳,
+于是发了一个八木唯的第8个表情: (这里对甜甜的原贴勘误: 是第8个表情不是第7个, 7是下标)
+
+![](./pic/image2_2.png)
+
+又过了几秒, 对家最终选择拒和, 只有甜甜和牌.
+看上去没问题对不对?但如果站在上家或下家的视角看这个过程, 没注意到甜甜对家也听3p的话, 很大概率会认为是甜甜在烧绳, 和牌还要嘲讽.
+所以这就是第一个帖子的由来:
+
+![](./pic/image3_2.jpg)
+
+后来, 甜甜发了另一个帖子(就是本专栏开头提到的那个), 从牌谱信息的角度给自己”洗脱罪名”(后来得知,
+这张图的内容是一位推特上叫yohko_arimura的姐姐做的):
+
+![image6.jpg](./pic/image6.jpg)
+
+这张图详细记录了下家打出3p之后的操作, 包括甜甜发表情时间和对家拒和时间, 可以说是非常全面, 一目了然. 于是,
+这里就引出了从计算机的角度来分析”牌谱里到底记载了什么”, 这也是本专栏的重点.
 
 ## 如何得到牌谱信息文件
 
-浏览器登录网页版雀魂, F12打开调试界面, 在Console界面输入以下脚本: (这个脚本保存在了 [GetPaipuJSON.js](../../paipu/GetPaipuJSON.js))
+浏览器登录网页版雀魂, F12打开调试界面, 在Console界面输入以下脚本: (
+这个脚本保存在了 [GetPaipuJSON.js](../../paipu/GetPaipuJSON.js))
 
 ```javascript
 function paipu(uuid = "") {
@@ -39,24 +66,21 @@ function paipu(uuid = "") {
                     const record = (pbWrapper.decode(gameDetailRecords.records[i]));
                     const pb = net.ProtobufManager.lookupType(record.name);
                     const data = JSON.parse(JSON.stringify((pb.decode(record.data))));
-                    json.records[i] = {name:record.name, data:data};
+                    json.records[i] = {name: record.name, data: data};
                 }
-            }
-            else if (gameDetailRecords.version == 210715) {
+            } else if (gameDetailRecords.version == 210715) {
                 for (let i in gameDetailRecords.actions) {
                     if (gameDetailRecords.actions[i].type == 1) {
                         const record = (pbWrapper.decode(gameDetailRecords.actions[i].result));
                         const pb = net.ProtobufManager.lookupType(record.name);
                         const data = JSON.parse(JSON.stringify((pb.decode(record.data))));
-                        json.actions[i].result = {name:record.name, data:data};
+                        json.actions[i].result = {name: record.name, data: data};
                     }
                 }
-            }
-            else {
+            } else {
                 throw ("Unknown version: " + gameDetailRecords.version);
             }
-        }
-        catch (e) {
+        } catch (e) {
             console.log(e);
         }
         return json;
@@ -83,8 +107,8 @@ function paipu(uuid = "") {
     app.NetAgent.sendReq2Lobby(
         "Lobby",
         "fetchGameRecord",
-        {game_uuid:uuid, client_version_string:GameMgr.Inst.getClientVersion()},
-        async function(error, gameRecord) {
+        {game_uuid: uuid, client_version_string: GameMgr.Inst.getClientVersion()},
+        async function (error, gameRecord) {
             if (gameRecord.data == "") {
                 gameRecord.data = await fetchData(gameRecord.data_url);
             }
@@ -94,12 +118,14 @@ function paipu(uuid = "") {
             gameDetailRecordsJson = parseRecords(gameDetailRecords, gameDetailRecordsJson);
             gameRecord.data = "";
             let gameRecordJson = JSON.parse(JSON.stringify(gameRecord));
-            gameRecordJson.data = {name:gameDetailRecordsWrapper.name, data:gameDetailRecordsJson};
+            gameRecordJson.data = {name: gameDetailRecordsWrapper.name, data: gameDetailRecordsJson};
             download(gameRecordJson, uuid);
         });
 }
+
 paipu()
 ```
+
 网页应该会弹出一个类似下图一样的提示框, 把想要分析的牌谱链接输进去, 点确定:
 
 举例: https://game.maj-soul.com/1/?paipu=210815-6da08e40-2605-42fb-a5e3-f8aa5940362a_a111703554
@@ -114,13 +140,15 @@ paipu()
 
 ## 牌谱信息文件的格式
 
-这个 json 文件主要分为两部分: `head` 和 `data`. `head` 就是存一些摘要性质的和对局核心内容关系不大的内容, 而 `data` 就是具体的对局细则.
+这个 json 文件主要分为两部分: `head` 和 `data`. `head` 就是存一些摘要性质的和对局核心内容关系不大的内容, 而 `data`
+就是具体的对局细则.
 
 ![image3.png](./pic/image3.png)
 
-`head` 部分又分为6个部分, 前三个比较简单. 
+`head` 部分又分为6个部分, 前三个比较简单.
 
-`uuid` 唯一区分牌谱的字符串, 也是非匿名牌谱链接的一部分, 比如上面那个谱的 `uuid` 就是 `210815-6da08e40-2605-42fb-a5e3-f8aa5940362a`
+`uuid` 唯一区分牌谱的字符串, 也是非匿名牌谱链接的一部分, 比如上面那个谱的 `uuid` 就是
+`210815-6da08e40-2605-42fb-a5e3-f8aa5940362a`
 
 `start_time` 和 `end_time` 很好理解, 就是对局开始时间和结束时间, 不过这里是 Unix 时间戳的格式.
 
@@ -166,7 +194,8 @@ paipu()
 
 `data` 的 `name` 表示记录牌谱详细信息的”功能”名称是 `.lq.GameDetailRecords`, 事实上只要是 `.lq` 开头的名称大多都与牌谱信息有关.
 
-`version` 发生在2021年7月15号之前的谱是 `0`, 之后的谱是 `210715`, 这前后牌谱信息文件的格式有所不同, 但现在目前基本都是后者了, 影响不大
+`version` 发生在2021年7月15号之前的谱是 `0`, 之后的谱是 `210715`, 这前后牌谱信息文件的格式有所不同, 但现在目前基本都是后者了,
+影响不大
 
 ## actions里面的内容
 
@@ -176,34 +205,37 @@ paipu()
 
 `passed` 已经过去时间, 从匹配成功时算起, 单位毫秒
 
-`type` 这里又分两种 
-1. 记录操作大类 `action.user_input.type` 
+`type` 这里又分两种
 
-    1表示发表情
+1. 记录操作大类 `action.user_input.type`
 
-    2表示自家在自摸巡的操作
+   1表示发表情
 
-    3表示他家在自摸巡的操作
+   2表示自家在自摸巡的操作
 
-    5表示一局结束后点"确定", 
+   3表示他家在自摸巡的操作
 
-    6表示因无操作自动模切后点击"我回了"
+   5表示一局结束后点"确定",
 
-    7表示开始对局
+   6表示因无操作自动模切后点击"我回了"
 
-    8和9表示断线和重连
+   7表示开始对局
+
+   8和9表示断线和重连
 
 2. 记录具体操作
 
-    `action.result.data.operations.operation_List.type` 可选择项
+   `action.result.data.operations.operation_List.type` 可选择项
 
-    `action.user_input.cpg.type` 实际选择项
+   `action.user_input.cpg.type` 实际选择项
 
-    他家自摸巡选项: 2: 吃, 3: 碰, 5: 杠, 9: 荣和, 15: 照射
+   他家自摸巡选项: 2: 吃, 3: 碰, 5: 杠, 9: 荣和, 15: 照射
 
-    自家自摸巡选项: 1: 打牌, 4: 暗杠, 6: 加杠, 7: 立直, 8: 自摸, 10: 九种九牌, 11: 拔北, 12: 换牌, 13: 定缺(0,1,2分别代表筒万索), 14: 暗牌, 16: 维持, 17: 暗牌立直
+   自家自摸巡选项: 1: 打牌, 4: 暗杠, 6: 加杠, 7: 立直, 8: 自摸, 10: 九种九牌, 11: 拔北, 12: 换牌, 13: 定缺(
+   0,1,2分别代表筒万索), 14: 暗牌, 16: 维持, 17: 暗牌立直
 
-`result` 结果, 也有很多种, 打出牌就是 `lq.RecordDiscardTile`, 摸牌是 `lq.RecordDealTile`, 下一小局就是 `lq.RecordNewRound`, 等等
+`result` 结果, 也有很多种, 打出牌就是 `lq.RecordDiscardTile`, 摸牌是 `lq.RecordDealTile`, 下一小局就是
+`lq.RecordNewRound`, 等等
 
 `seat` 也是同上, 座次
 
@@ -280,34 +312,34 @@ timeuse = 8 // 所用时间: 8秒
 
 ## 牌谱信息文件的应用
 
-1.	查看玩家信息
+1. 查看玩家信息
 
-      这个很容易理解, 不过仅此而已作用就不大了
+   这个很容易理解, 不过仅此而已作用就不大了
 
-2.	统计玩家角色, 装扮使用情况, 分析各段位玩家的出现频率与时间
+2. 统计玩家角色, 装扮使用情况, 分析各段位玩家的出现频率与时间
 
-      既然该文件包含对局玩家的详细信息, 那自然可以知道该玩家用的什么角色和哪些装扮,
-      这样就可以做到”雀士使用人数普查”, 正好甜甜也在做这个, 还有”一天当中什么时间玉之间雀圣比较多”(yohko 姐姐做过这个),
-      “什么装扮受欢迎”, 但这些的前提是能做到可以批量拿到牌谱, 虽说有些脚本能做到下载本账号的最近1000个牌谱,
-      但就大量玩家统计而言, 我还是做不到以时间为关键词进行爬取(比如, 抽取某一天金之间及以上段位场的对局),
-      但我有两个思路可以供有兴趣的读者尝试:
+   既然该文件包含对局玩家的详细信息, 那自然可以知道该玩家用的什么角色和哪些装扮,
+   这样就可以做到”雀士使用人数普查”, 正好甜甜也在做这个, 还有”一天当中什么时间玉之间雀圣比较多”(yohko 姐姐做过这个),
+   “什么装扮受欢迎”, 但这些的前提是能做到可以批量拿到牌谱, 虽说有些脚本能做到下载本账号的最近1000个牌谱,
+   但就大量玩家统计而言, 我还是做不到以时间为关键词进行爬取(比如, 抽取某一天金之间及以上段位场的对局),
+   但我有两个思路可以供有兴趣的读者尝试:
 
-      a) 查阅雀魂牌谱屋爬取雀魂金之间及以上对局的代码, 弄懂, 掌握其原理, 
-      又或者直接从牌谱屋里爬取牌谱(这个作用有限, 也是只能以玩家为单位而不是以时间, 
-      牌谱屋作者估计也不会让你直接调用存放在后台的大量数据, 不过我觉得凡事都可以试一下, 
-      给牌谱屋作者发个邮件询问也是可行的)
-      
-      b) 通过雀魂的观战接口, 自己通过脚本录制观战过程中玩家的行为分析得到”自己制作的”牌谱, 
-      又或者能发现观战接口与该局的牌谱之间的联系, 很明显这个难度会更大.
+   a) 查阅雀魂牌谱屋爬取雀魂金之间及以上对局的代码, 弄懂, 掌握其原理,
+   又或者直接从牌谱屋里爬取牌谱(这个作用有限, 也是只能以玩家为单位而不是以时间,
+   牌谱屋作者估计也不会让你直接调用存放在后台的大量数据, 不过我觉得凡事都可以试一下,
+   给牌谱屋作者发个邮件询问也是可行的)
 
-      ![image7.png](./pic/image7.png)
+   b) 通过雀魂的观战接口, 自己通过脚本录制观战过程中玩家的行为分析得到”自己制作的”牌谱,
+   又或者能发现观战接口与该局的牌谱之间的联系, 很明显这个难度会更大.
 
-3.	自制牌谱回放
+   ![image7.png](./pic/image7.png)
 
-      详见仓库: [majsoul-replay-editor](https://github.com/Fat-pig-Cui/majsoul-replay-editor)
+3. 自制牌谱回放
 
-      ![image8.jpg](./pic/image8.jpg)
-      
+   详见仓库: [majsoul-replay-editor](https://github.com/Fat-pig-Cui/majsoul-replay-editor)
+
+   ![image8.jpg](./pic/image8.jpg)
+
 ---
 
 ## 下面是我研究如何批量下载牌谱信息文件的一些结论(正确性未知), 供有兴趣者参考
@@ -316,28 +348,31 @@ timeuse = 8 // 所用时间: 8秒
 
 `app.NetAgent.sendReq2Lobby("Lobby", “fetchGameRecord”, …, async function(…) …)`
 
-这个函数有四个参数, 后来发现第二个参数 `fetchGameRecord` 是一个 api 调用, 上面这个函数的意思就是给雀魂后端发送一个请求到前台, 
-请求对应的内容就是 `fetchGameRecord` 调用, 而这个调用的参数就是 `sendReq2Lobby` 的第三个参数, 第四个函参数应该是对应的响应函数, 
+这个函数有四个参数, 后来发现第二个参数 `fetchGameRecord` 是一个 api 调用, 上面这个函数的意思就是给雀魂后端发送一个请求到前台,
+请求对应的内容就是 `fetchGameRecord` 调用, 而这个调用的参数就是 `sendReq2Lobby` 的第三个参数, 第四个函参数应该是对应的响应函数,
 用于处理接收的信息.
 
-然后我发现了下载自己近期所有牌谱的脚本, 它和上面差不多, 不过用到的是另一个调用: `fetchGameRecordList`, 
-这个调用和上个相比应该是, 上个调用只能处理一个牌谱, 而这个可以处理一个 list 的牌谱, 后端收到请求的时候会生成或已存在 list, 
-然后根据 list 发送响应, 我看那个脚本是在玩家点开牌谱界面的时候, 后端就已经准备好牌谱界面的所有牌谱链接, 
+然后我发现了下载自己近期所有牌谱的脚本, 它和上面差不多, 不过用到的是另一个调用: `fetchGameRecordList`,
+这个调用和上个相比应该是, 上个调用只能处理一个牌谱, 而这个可以处理一个 list 的牌谱, 后端收到请求的时候会生成或已存在
+list,
+然后根据 list 发送响应, 我看那个脚本是在玩家点开牌谱界面的时候, 后端就已经准备好牌谱界面的所有牌谱链接,
 存放在 `uiscript.UI_PaiPu.record_map` 中.
 
 再然后我发现了雀魂牌谱信息(.lq)相关的 api 列表网站中:
 
 https://wife.awa.moe/mjsoul/api.html
 
-找到了第三个类似的调用: `fetchGameRecordsDetail`, 但这个调用我还没在脚本中见到使用过, 
-倒是见到了请求大会战牌谱的 `fetchCustomizedContestByContestId`, 对应文件是 [taikai.js](../../paipu/taikai.js), 
+找到了第三个类似的调用: `fetchGameRecordsDetail`, 但这个调用我还没在脚本中见到使用过,
+倒是见到了请求大会战牌谱的 `fetchCustomizedContestByContestId`, 对应文件是 [taikai.js](../../paipu/taikai.js),
 不过可以肯定的是, 所用的所有调用都跑不出上面这个网站列的范围.
 
-就在我想雀魂牌谱屋用的是上面三个调用中的哪个时, 发现用这三个都搜不到 usage, 后来发现可能是作者有意为之, 
-因为上面三个调用都涉及到了牌谱的 uuid, 作者不希望公开 uuid, 然后我没看懂[牌谱屋仓库](https://github.com/SAPikachu/amae-koromo)是怎么爬牌谱的, 就不知道怎么办了(笑死).
+就在我想雀魂牌谱屋用的是上面三个调用中的哪个时, 发现用这三个都搜不到 usage, 后来发现可能是作者有意为之,
+因为上面三个调用都涉及到了牌谱的 uuid, 作者不希望公开 uuid,
+然后我没看懂[牌谱屋仓库](https://github.com/SAPikachu/amae-koromo)是怎么爬牌谱的, 就不知道怎么办了(笑死).
 
 ![image9.png](./pic/image9.png)
 
 ![image10.png](./pic/image10.png)
 
-牌谱屋仓库有两个, 一个是 [amae-koromo](https://github.com/SAPikachu/amae-koromo) 和 [amae-koromo-scripts](https://github.com/SAPikachu/amae-koromo-scripts) , 研究的话两个应该都要看
+牌谱屋仓库有两个, 一个是 [amae-koromo](https://github.com/SAPikachu/amae-koromo)
+和 [amae-koromo-scripts](https://github.com/SAPikachu/amae-koromo-scripts) , 研究的话两个应该都要看
