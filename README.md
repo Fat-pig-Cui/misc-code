@@ -20,8 +20,6 @@ code_decode.js 是解混淆后的 code.js, dict_format.js 是格式美化后的 
 
 详见 [README.md](./doc/codejs文件解混淆/README.md) 或B站专栏 [cv36277616](https://www.bilibili.com/read/cv36277616)
 
-(code.js Updated 2024/11/29)
-
 ---
 
 #### [AccountDecode.py](AccountDecode.py)
@@ -80,7 +78,7 @@ GetPaipuJSON.js 文件就是这个专栏中提到在 Console 里输入的脚本:
 
 #### [plugins 文件夹](plugins)
 
-这里面有两个我觉得可以研究一下的插件: 我全都要(wqdy, 全角色皮肤解锁) 和 查水表(通过牌谱回放加好友)
+这里面有两个我觉得可以研究一下的插件: 我全都要(wqdy, 全角色皮肤解锁), 查水表(通过牌谱回放加好友, 该插件目前已失效), 以及解锁不同服称号
 
 ---
 

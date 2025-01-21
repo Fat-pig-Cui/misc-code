@@ -7,7 +7,7 @@
 
 ```js
 {
-    a = [], b = {};
+    let a = [], b = {};
     cfg.desktop.matchmode.forEach(i => b[i.id] = i.room_name_chs);
     cfg.activity.activity_desktop.getGroup(230143).forEach(i => a.push(b[i.desktop_id]));
     a
