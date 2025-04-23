@@ -19,7 +19,7 @@ A: code.js 是雀魂的核心 JavaScript 文件, 几乎所有算法, 资源架�
 import re  # 第二部分要用到正则表达式, 先放到最前面
 
 # code.js 文件版本, 以日期形式
-code_version = "250326"
+code_version = "250423"
 
 '''
 下列日期版本的 code.js 文件的三行字典长度分别是
@@ -32,6 +32,7 @@ code_version = "250326"
 2025年1月21号: [9674, 9814, 9879]
 2025年3月19号: [9868, 9941, 9896]
 2025年3月19号: [10065, 10083, 9874]
+2025年4月23号: [10290, 10217, 10266]
 '''
 
 '''
@@ -57,8 +58,8 @@ names = locals()
 # 字典文件目录 和 规格化后的字典文件存放目录, 根据自身情况修改 "path"
 file_dict_path = "./codejs/" + code_version + "/origin/dict.js"
 file_format_path = "./codejs/" + code_version + "/output/dict_format.js"
-dict_file = open(file_dict_path, "r")
-format_file = open(file_format_path, "w")
+dict_file = open(file_dict_path, "r", encoding='utf-8')
+format_file = open(file_format_path, "w", encoding='utf-8')
 
 # DATA 是三行字典的全体, 读取完成后再分发到三个变量里面
 # NAME 是字典里面 3*3 总共 9 个变量的名称
@@ -177,8 +178,8 @@ print(len(DATA[2]))
 # 除去字典的 code.js 文件目录 和 解混淆后的文件存放目录, 根据自身情况修改 "path"
 file_code_path = "./codejs/" + code_version + "/origin/code.js"
 file_decode_path = "./codejs/" + code_version + "/output/code_decode.js"
-code_file = open(file_code_path, "r")
-decode_file = open(file_decode_path, "w")
+code_file = open(file_code_path, "r", encoding='utf-8')
+decode_file = open(file_decode_path, "w", encoding='utf-8')
 
 '''
 三个正则表达式, 第一个和第二个几乎一样, 不同在于第一个是为了找到一行所有匹配的子串, 而第二个对找到的子串进一步划分
