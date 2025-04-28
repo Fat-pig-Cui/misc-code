@@ -8,7 +8,7 @@ read this on Bilibili: [cv36066023](https://www.bilibili.com/read/cv36066023)
 
 举一个比较著名的牌谱:
 
-![image1.png](./pic/image1.png)
+![pic/image1.png](pic/image1.png)
 
 普通牌谱: https://game.maj-soul.com/1/?paipu=200515-cfbe0120-c92c-44ad-bdfc-ebfef3a33a10_a89702544
 
@@ -44,15 +44,15 @@ B站的原专栏中虽然使用 C++ 展示的, 但都一样, 而且 python 更�
 
 那把牌谱中的 `match_id` 转换成对应视角账号的就行, 比如这里想把主视角换成上家小鸟游雏田(西起)的
 
-![image2.png](./pic/image2.png)
+![pic/image2.png](pic/image2.png)
 
 得到西起玩家的 `match_id` 是 13858370, 那对应的牌谱就是 https://game.maj-soul.com/1/?paipu=200515-cfbe0120-c92c-44ad-bdfc-ebfef3a33a10_a13858370
 
 根据 [MatchDecode.py](../../MatchDecode.py) 也能得到匿名牌谱形式的: https://game.maj-soul.com/1/?paipu=jijpmr-0415suwv-971c-67ei-ilom-qottvksmnvnn_a13858370_2
 
-![image3.png](./pic/image3.png)
+![pic/image3.png](pic/image3.png)
 
-![image4.png](./pic/image4.png)
+![pic/image4.png](pic/image4.png)
 
 
 

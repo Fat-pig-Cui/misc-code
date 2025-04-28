@@ -16,7 +16,7 @@ read this on Bilibili: [cv23616802](https://www.bilibili.com/read/cv23616802)
 
 这个是最基础的 id, 也是牌谱屋网址里显示的id, 就是这张图遮住的部分
 
-![image1.png](./pic/image1.png)
+![pic/image1.png](pic/image1.png)
 
 获取账号的这个 id 也比较简单, 只要有牌谱就行, 如果没有牌谱, 但能在牌谱屋查到该玩家的话, 随便找一个他的对局就可以获得牌谱
 
@@ -24,9 +24,9 @@ read this on Bilibili: [cv23616802](https://www.bilibili.com/read/cv23616802)
 
 `view.DesktopMgr.Inst.player_datas`
 
-![image2.png](./pic/image2.png)
+![pic/image2.png](pic/image2.png)
 
-![image3.png](./pic/image3.png)
+![pic/image3.png](pic/image3.png)
 
 这个长度为4的数组就是存储玩家信息的, 展开就可以查看玩家信息, 根据玩家昵称就能获得里面的 `account_id`
 

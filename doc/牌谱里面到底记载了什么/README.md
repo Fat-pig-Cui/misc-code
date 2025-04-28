@@ -19,25 +19,25 @@ read this on Bilibili: [cv36373732](https://www.bilibili.com/read/cv36373732)
 对于大部分玩家来说, 雀魂牌谱的作用就是游戏内回放对局, 少数会拿去跑Mortal, Naga之类的AI, 但不管怎样,
 常规手段下无法解决甜甜遇到的这个问题:
 
-![](./pic/image1_2.png)
+![pic/image1_2.png](pic/image1_2.png)
 
 牌谱链接: (南四局0本场) https://game.maj-soul.com/1/?paipu=210815-6da08e40-2605-42fb-a5e3-f8aa5940362a_a111703554
 
 这里, 主视角甜甜和对家都听到了3p, 此时下家放铳, 甜甜立马点和, 但对家在思考是否要和而在读条, 过了几秒之后甜甜认为可能是一炮多响而且有人烧绳,
 于是发了一个八木唯的第8个表情: (这里对甜甜的原贴勘误: 是第8个表情不是第7个, 7是下标)
 
-![](./pic/image2_2.png)
+![pic/image2_2.png](pic/image2_2.png)
 
 又过了几秒, 对家最终选择拒和, 只有甜甜和牌.
 看上去没问题对不对?但如果站在上家或下家的视角看这个过程, 没注意到甜甜对家也听3p的话, 很大概率会认为是甜甜在烧绳, 和牌还要嘲讽.
 所以这就是第一个帖子的由来:
 
-![](./pic/image3_2.jpg)
+![pic/image3_2.jpg](pic/image3_2.jpg)
 
 后来, 甜甜发了另一个帖子(就是本专栏开头提到的那个), 从牌谱信息的角度给自己”洗脱罪名”(后来得知,
 这张图的内容是一位推特上叫yohko_arimura的姐姐做的):
 
-![image6.jpg](./pic/image6.jpg)
+![pic/image6.jpg](pic/image6.jpg)
 
 这张图详细记录了下家打出3p之后的操作, 包括甜甜发表情时间和对家拒和时间, 可以说是非常全面, 一目了然. 于是,
 这里就引出了从计算机的角度来分析”牌谱里到底记载了什么”, 这也是本专栏的重点.
@@ -130,11 +130,11 @@ paipu()
 
 举例: https://game.maj-soul.com/1/?paipu=210815-6da08e40-2605-42fb-a5e3-f8aa5940362a_a111703554
 
-![image1.png](./pic/image1.png)
+![pic/image1.png](pic/image1.png)
 
 就会下载一个比较大的 json 文件, 这个就是牌谱信息文件, 可以用包括记事本在内的文本编辑器打开.
 
-![image2.png](./pic/image2.png)
+![pic/image2.png](pic/image2.png)
 
 举例牌谱的 json 文件保存在了 [paipu_****.json](../../paipu/paipu_210815-6da08e40-2605-42fb-a5e3-f8aa5940362a.json)
 
@@ -143,7 +143,7 @@ paipu()
 这个 json 文件主要分为两部分: `head` 和 `data`. `head` 就是存一些摘要性质的和对局核心内容关系不大的内容, 而 `data`
 就是具体的对局细则.
 
-![image3.png](./pic/image3.png)
+![pic/image3.png](pic/image3.png)
 
 `head` 部分又分为6个部分, 前三个比较简单.
 
@@ -188,7 +188,7 @@ paipu()
 
 `gold` 铜币得失
 
-![image4.png](./pic/image4.png)
+![pic/image4.png](pic/image4.png)
 
 相比来说 `data` 里面东西就比 `head` 多多了.
 
@@ -201,7 +201,7 @@ paipu()
 
 为了描述方便, 这里以下图作为参照
 
-![image5.png](./pic/image5.png)
+![pic/image5.png](pic/image5.png)
 
 `passed` 已经过去时间, 从匹配成功时算起, 单位毫秒
 
@@ -249,7 +249,7 @@ paipu()
 
 剩下的可以看下图的翻译
 
-![image6.jpg](./pic/image6.jpg)
+![pic/image6.jpg](pic/image6.jpg)
 
 ```text
 action.result.name = lq.RecordDiscardTile
@@ -308,7 +308,7 @@ timeuse = 8 // 所用时间: 8秒
   config.passed_delta = 1
 ```
 
-该文件保存在 [doc.txt](./doc.txt)
+该文件保存在 [doc.txt](doc.txt)
 
 ## 牌谱信息文件的应用
 
@@ -332,13 +332,13 @@ timeuse = 8 // 所用时间: 8秒
    b) 通过雀魂的观战接口, 自己通过脚本录制观战过程中玩家的行为分析得到”自己制作的”牌谱,
    又或者能发现观战接口与该局的牌谱之间的联系, 很明显这个难度会更大.
 
-   ![image7.png](./pic/image7.png)
+   ![pic/image7.png](pic/image7.png)
 
 3. 自制牌谱回放
 
    详见仓库: [majsoul-replay-editor](https://github.com/Fat-pig-Cui/majsoul-replay-editor)
 
-   ![image8.jpg](./pic/image8.jpg)
+   ![pic/image8.jpg](pic/image8.jpg)
 
 ---
 
@@ -370,9 +370,9 @@ https://wife.awa.moe/mjsoul/api.html
 因为上面三个调用都涉及到了牌谱的 uuid, 作者不希望公开 uuid,
 然后我没看懂[牌谱屋仓库](https://github.com/SAPikachu/amae-koromo)是怎么爬牌谱的, 就不知道怎么办了(笑死).
 
-![image9.png](./pic/image9.png)
+![pic/image9.png](pic/image9.png)
 
-![image10.png](./pic/image10.png)
+![pic/image10.png](pic/image10.png)
 
 牌谱屋仓库有两个, 一个是 [amae-koromo](https://github.com/SAPikachu/amae-koromo)
 和 [amae-koromo-scripts](https://github.com/SAPikachu/amae-koromo-scripts) , 研究的话两个应该都要看

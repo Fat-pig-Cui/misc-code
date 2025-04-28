@@ -22,13 +22,13 @@ A: code.js 是雀魂的核心 JavaScript 文件, 几乎所有算法, 资源架�
 复制, 粘贴到本地一个空的 js 文件中(记为 code.js). 该文件非常大(10M的文本文件), 相关操作会有点卡. 
 (以下展示的是2024年7月22号版本的 code.js, 不同版本会有不同)
 
-![image1.png](./pic/image1.png)
+![pic/image1.png](pic/image1.png)
 
 打开 code.js, 选中非常长的前三行剪切到另一个空的 js 文件中(记为 dict.js)
 
 这样就完成了基本前置工作, 此时 code.js 文件去掉了前三行, 而且 dict.js 只有三行
 
-![image2.png](./pic/image2.png)
+![pic/image2.png](pic/image2.png)
 
 ## 解混淆脚本
 
@@ -39,7 +39,7 @@ A: code.js 是雀魂的核心 JavaScript 文件, 几乎所有算法, 资源架�
 稍微提一点, 如何判断对字典 dict.js 文件的读取没有出错: 一般只要看三个字典数组的长度能不能对得上就行, 
 在浏览器 Console 界面的是真实长度, 在脚本里 `print` 的是读取长度, 对不上就折半查找看到底出了问题.
 
-![image3.png](./pic/image3.png)
+![pic/image3.png](pic/image3.png)
 
 最后啰嗦一下 [codejs](../../codejs) 文件夹下的文件: code_origin.js 是原来的完整文件, code_decode.js 是解混淆后的文件
 dict_format.js 是格式化后的那三行字典文件
