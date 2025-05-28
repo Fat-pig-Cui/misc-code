@@ -5,6 +5,15 @@
     @brief 雀魂麻将加好友的 friend_id, 牌谱屋的 account_id 以及 牌谱链接最后部分的 match_id 三者之间的转化
 """
 
+# friend_id 为游戏加好友的 id, account_id 为牌谱屋网址显示的 id, match_id 为牌谱链接最后部分的 id
+# account_id = fri2account(friend_id)
+# friend_id = acc2friend(account_id)
+# friend_id = 42121878, account_id = 15628582, match_id = 63606719
+
+friend_id = int(42121878)
+account_id = int(15628582)
+match_id = int(63606719)
+
 # 下面四个是 friend_id 与 account_id 之间相关的常量
 OFFSET = 1e7  # 与核心算法的结果偏移量
 XOR_CODE = 6139246  # 异或加密的数据
@@ -60,16 +69,16 @@ HiJKlMnOPqRsTUvWXYzabcDeFG  aa[26]
 '''
 
 
-def acc2friend(account_id):
-    data = account_id ^ XOR_CODE  # 因为 a ^ b ^ b = a, 所以再异或一次即可
+def acc2friend(_account_id):
+    data = _account_id ^ XOR_CODE  # 因为 a ^ b ^ b = a, 所以再异或一次即可
     tmp = data & ALPHABET  # 二进制后26位
 
     # 从左向右数第7位分割, 524287 的二进制是19个1
     tmp = (tmp & 524287) << 7 | tmp >> 19
 
     # (data & EXCEEDED) 的意思是如果 data >= EXCEEDED, 则等于 EXCEEDED, 如果 data < EXCEEDED, 那么等于 0
-    friend_id = int(tmp + (data & EXCEEDED) + OFFSET)  # 回加
-    return friend_id
+    _friend_id = int(tmp + (data & EXCEEDED) + OFFSET)  # 回加
+    return _friend_id
 
 
 # fri2account 函数将 游戏加好友的 id (friend_id) 转化为 牌谱屋网址显示的 id (account_id)
@@ -117,47 +126,38 @@ tuvWxYZAbCDeFgHIjKlMNoPQRs  bb[26]
 '''
 
 
-def fri2account(friend_id):
-    data = int(friend_id - OFFSET)  # 数据预处理
+def fri2account(_friend_id):
+    data = int(_friend_id - OFFSET)  # 数据预处理
     tmp = data & ALPHABET  # 二进制后26位
 
     # 从左向右数第19位分割, 127 的二进制是7个1
     tmp = (tmp & 127) << 19 | tmp >> 7
 
-    account_id = int((data & EXCEEDED) + tmp ^ XOR_CODE)
-    return account_id
+    _account_id = int((data & EXCEEDED) + tmp ^ XOR_CODE)
+    return _account_id
 
 
 # acc2match 函数将 牌谱屋网址显示的 id (account_id) 转化为 牌谱链接最后部分的 id (match_id)
-def acc2match(account_id):
-    return int((7 * account_id + OFFSET_2[0] ^ XOR_CODE_2) + OFFSET_2[1])
+def acc2match(_account_id):
+    return int((7 * _account_id + OFFSET_2[0] ^ XOR_CODE_2) + OFFSET_2[1])
 
 
 # fri2match 函数将 牌谱链接最后部分的 id (match_id) 转化为 牌谱屋网址显示的 id (account_id)
-def mat2account(match_id):
-    return int(((match_id - OFFSET_2[1] ^ XOR_CODE_2) - OFFSET_2[0]) / 7)
+def mat2account(_match_id):
+    return int(((_match_id - OFFSET_2[1] ^ XOR_CODE_2) - OFFSET_2[0]) / 7)
 
 
 # mat2friend 函数将 牌谱链接最后部分的 id (match_id) 转化为 游戏加好友的 id (friend_id)
-def mat2friend(match_id):
-    return acc2friend(mat2account(match_id))
+def mat2friend(_match_id):
+    return acc2friend(mat2account(_match_id))
 
 
 # fri2match 函数将 游戏加好友的 id (friend_id) 转化为 牌谱链接最后部分的 id (match_id)
-def fri2match(friend_id):
-    return acc2match(fri2account(friend_id))
+def fri2match(_friend_id):
+    return acc2match(fri2account(_friend_id))
 
 
 def main():
-    # friend_id 为游戏加好友的 id, account_id 为牌谱屋网址显示的 id, match_id 为牌谱链接最后部分的 id
-    # account_id = fri2account(friend_id)
-    # friend_id = acc2friend(account_id)
-    # friend_id = 42121878, account_id = 15628582, match_id = 63606719
-
-    friend_id = int(42121878)
-    account_id = int(15628582)
-    match_id = int(63606719)
-    # account_id = int(input())
     print(acc2friend(account_id))
     print(fri2account(friend_id))
     print(acc2match(account_id))

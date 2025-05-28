@@ -81,7 +81,7 @@ def decodeMatch(string):
     return result
 
 
-def main(debug=1):
+def main():
     """
     @brief
     雀魂牌谱的关键信息在链接 "?paipu=" 后面(毕竟前面都是一样的), 可以看到这部分的字符串有很多特征:
@@ -99,42 +99,42 @@ def main(debug=1):
     # 匿名牌谱
     enc_url = "https://game.maj-soul.com/1/?paipu=jijpmr-0415suwv-971c-67ei-ilom-qottvksmnvnn_a89702544_2"
 
-    dec = debug  # 由你修改: 0 表示普通牌谱转换为匿名牌谱, 1 表示匿名牌谱转换为普通牌谱
     # 匹配的正则表达式
     pattern = r"([a-z0-9]{6}\-[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-z0-9]{12})_a(\d+)(_2)?"
-    if dec == 0:  # 普通牌谱转换为匿名牌谱
-        matches = re.search(pattern, dec_url)
-        if not matches:
-            print("Invalid Majsoul match url!")
-            return
-        '''
-        正则匹配执行结果分析
-        到这里 matches 就是个长度为 4 的数组, 下面匿名牌谱也类似, 对应内容分别是
-        {
-            matches[0]:  "200515-cfbe0120-c92c-44ad-bdfc-ebfef3a33a10_a89702544", (关键信息的整个部分)
-            matches[1]:  "200515-cfbe0120-c92c-44ad-bdfc-ebfef3a33a10", ("_a"前面的部分)
-            matches[2]:  "89702544", ("_a"后面不带"_2"的部分)
-            matches[3]:  "" (普通牌谱) 或 "_2" (匿名牌谱)
-        }
-        所以区别匿名牌谱与普通牌谱的区别就通过 matches[3]
-        '''
-        if not matches[3]:  # 普通牌谱
-            enmatch = encodeMatch(matches[1])  # 核心转换函数
-            enc_url = dec_url.replace(matches[0], enmatch + '_a' + matches[2] + '_2')  # 替换
-            print("The Anonymous url: " + enc_url)
-        else:
-            print("Already an Anonymous match link!")
-    else:  # 匿名牌谱转换为普通牌谱
-        matches = re.search(pattern, enc_url)
-        if not matches:
-            print("Invalid Majsoul match url!")
-            return
-        if matches[3]:  # 匿名牌谱
-            dematch = decodeMatch(matches[1])  # 核心转换函数
-            dec_url = enc_url.replace(matches[0], dematch + '_a' + matches[2])  # 替换
-            print("The Non-Anonymous url: " + dec_url)
-        else:
-            print("Already a Non-Anonymous match link!")
+    # 普通牌谱转换为匿名牌谱
+    dec_matches = re.search(pattern, dec_url)
+    if not dec_matches:
+        print("Invalid Majsoul match url!")
+        return
+    '''
+    正则匹配执行结果分析
+    到这里 matches 就是个长度为 4 的数组, 下面匿名牌谱也类似, 对应内容分别是
+    {
+        matches[0]:  "200515-cfbe0120-c92c-44ad-bdfc-ebfef3a33a10_a89702544", (关键信息的整个部分)
+        matches[1]:  "200515-cfbe0120-c92c-44ad-bdfc-ebfef3a33a10", ("_a"前面的部分)
+        matches[2]:  "89702544", ("_a"后面不带"_2"的部分)
+        matches[3]:  "" (普通牌谱) 或 "_2" (匿名牌谱)
+    }
+    所以区别匿名牌谱与普通牌谱的区别就通过 matches[3]
+    '''
+    if not dec_matches[3]:  # 普通牌谱
+        enmatch = encodeMatch(dec_matches[1])  # 核心转换函数
+        enc_url = dec_url.replace(dec_matches[0], enmatch + '_a' + dec_matches[2] + '_2')  # 替换
+        print("The Anonymous url: " + enc_url)
+    else:
+        print("Already an Anonymous match link!")
+
+    # 匿名牌谱转换为普通牌谱
+    enc_matches = re.search(pattern, enc_url)
+    if not enc_matches:
+        print("Invalid Majsoul match url!")
+        return
+    if enc_matches[3]:  # 匿名牌谱
+        dematch = decodeMatch(enc_matches[1])  # 核心转换函数
+        dec_url = enc_url.replace(enc_matches[0], dematch + '_a' + enc_matches[2])  # 替换
+        print("The Non-Anonymous url: " + dec_url)
+    else:
+        print("Already a Non-Anonymous match link!")
 
 
 if __name__ == "__main__":
