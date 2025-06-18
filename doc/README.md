@@ -1,8 +1,8 @@
-# 相关文档 Document articles
+# 相关文档
 
 On Bilibili:
 
-[【雀魂】如何通过牌谱屋或牌谱链接加好友](https://www.bilibili.com/read/cv23616802)
+[【雀魂】如何通过牌谱屋或牌谱链接加好友(补档)](https://www.bilibili.com/read/cv42015265), 阿b真幽默, 把我之前的专栏锁了
 
 [【雀魂】雀魂匿名牌谱与普通牌谱之间的转换](https://www.bilibili.com/read/cv36066023)
 

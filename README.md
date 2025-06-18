@@ -26,7 +26,7 @@ code_decode.js 是解混淆后的 code.js, dict_format.js 是格式美化后的 
 
 这个是雀魂账号的三种 id: `account_id`, `friend_id`, `match_id` 之间的转换
 
-加好友用的是 `friend_id`, 详见 [README.md](doc/如何通过牌谱链接加好友/README.md) 或B站专栏 [cv23616802](https://www.bilibili.com/read/cv23616802) 
+加好友用的是 `friend_id`, 详见 [README.md](doc/如何通过牌谱链接加好友/README.md)
 
 ---
 
@@ -78,7 +78,7 @@ GetPaipuJSON.js 文件就是这个专栏中提到在 Console 里输入的脚本:
 
 #### [plugins 文件夹](plugins)
 
-这里面有两个我觉得可以研究一下的插件: 我全都要(wqdy, 全角色皮肤解锁), 查水表(通过牌谱回放加好友, 该插件目前已失效), 以及解锁不同服称号
+这里面有两个我觉得可以研究一下的插件: 我全都要(wqdy, 全角色皮肤解锁), 和解锁不同服称号
 
 ---
 

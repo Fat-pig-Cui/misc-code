@@ -1,6 +1,6 @@
 # 如何通过牌谱链接加好友
 
-read this on Bilibili: [cv23616802](https://www.bilibili.com/read/cv23616802)
+read this on Bilibili: [cv42015265](https://www.bilibili.com/read/cv42015265)
 
 雀魂牌谱屋: https://amae-koromo.sapk.ch
 
