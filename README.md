@@ -70,7 +70,7 @@ GetPaipuJSON.js 文件就是这个专栏中提到在 Console 里输入的脚本:
 
 关键信息在 browseinject.js 中, 用的雀魂 API 是 `fetchGameRecordList`
 
-专栏中的那个雀魂 API 列表网站: [Protocol Documentation](https://wife.awa.moe/mjsoul/api.html)
+专栏中的那个雀魂 API 列表网站: [API一覧にゃ](https://wikiwiki.jp/majsoul-api/API%E4%B8%80%E8%A6%A7%E3%81%AB%E3%82%83)
 
 此外: 雀魂牌谱屋的两个仓库: [amae-koromo](https://github.com/SAPikachu/amae-koromo) , [amae-koromo-scripts](https://github.com/SAPikachu/amae-koromo-scripts)
 
