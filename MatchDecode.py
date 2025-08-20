@@ -1,7 +1,6 @@
 """
     @file MatchDecode.py
     @author Chubbypig (chubbypig@qq.com)
-    @date 2024-7-12
     @brief 雀魂匿名牌谱与普通牌谱链接之间的转换
 """
 import re
@@ -119,8 +118,8 @@ def main():
     '''
     if not dec_matches[3]:  # 普通牌谱
         enmatch = encodeMatch(dec_matches[1])  # 核心转换函数
-        enc_url = dec_url.replace(dec_matches[0], enmatch + '_a' + dec_matches[2] + '_2')  # 替换
-        print("The Anonymous url: " + enc_url)
+        new_enc_url = dec_url.replace(dec_matches[0], enmatch + '_a' + dec_matches[2] + '_2')  # 替换
+        print("The Anonymous url: " + new_enc_url)
     else:
         print("Already an Anonymous match link!")
 
@@ -131,8 +130,8 @@ def main():
         return
     if enc_matches[3]:  # 匿名牌谱
         dematch = decodeMatch(enc_matches[1])  # 核心转换函数
-        dec_url = enc_url.replace(enc_matches[0], dematch + '_a' + enc_matches[2])  # 替换
-        print("The Non-Anonymous url: " + dec_url)
+        new_dec_url = enc_url.replace(enc_matches[0], dematch + '_a' + enc_matches[2])  # 替换
+        print("The Non-Anonymous url: " + new_dec_url)
     else:
         print("Already a Non-Anonymous match link!")
 

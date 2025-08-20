@@ -1,7 +1,6 @@
 """
     @file: CodeDecode.py
     @author: Chubbypig (chubbypig@qq.com)
-    @date: 2024-7-24
     @brief:
 Q: 什么是 code.js?
 A: code.js 是雀魂的核心 JavaScript 文件, 几乎所有算法, 资源架构都可以在这里得到分析, 但该文件进行过 JavaScript 混淆,
@@ -19,7 +18,7 @@ A: code.js 是雀魂的核心 JavaScript 文件, 几乎所有算法, 资源架�
 import re  # 第二部分要用到正则表达式, 先放到最前面
 
 # code.js 文件版本, 以日期形式
-code_version = "250723"
+code_version = "250820"
 
 '''
 下列日期版本的 code.js 文件的三行字典长度分别是
@@ -38,6 +37,7 @@ code_version = "250723"
 2025年6月23号: [10422, 10373, 10127]
 2025年6月25号: [10433, 10160, 10493]
 2025年7月23号: [10359, 10430, 10328]
+2025年8月20号: [10729, 10745, 10617]
 '''
 
 '''

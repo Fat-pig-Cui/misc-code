@@ -136,7 +136,8 @@ paipu()
 
 ![pic/image2.png](pic/image2.png)
 
-举例牌谱的 json 文件保存在了 [paipu_****.json](../../paipu/paipu_210815-6da08e40-2605-42fb-a5e3-f8aa5940362a.json)
+举例牌谱的 json
+文件保存在了 [paipu_210815-6da08e40-2605-42fb-a5e3-f8aa5940362a.json](../../paipu/paipu_210815-6da08e40-2605-42fb-a5e3-f8aa5940362a.json)
 
 ## 牌谱信息文件的格式
 

@@ -10,7 +10,8 @@
   "resourcepack": [],
   "shortcut": {
     "name": "我全都要",
-    "actions": [{
+    "actions": [
+      {
         "name": "手动保存当前配置",
         "execute": "window.wqdy.writeSetting()"
       }

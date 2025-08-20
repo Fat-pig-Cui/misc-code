@@ -4,7 +4,7 @@
 
 ## 文件说明
 
-#### [CodeDecode.py](CodeDecode.py)
+### [CodeDecode.py](CodeDecode.py)
 
 这个是雀魂的核心 JavaScript 文件: code.js 的初级解混淆脚本
 
@@ -18,37 +18,37 @@ code_origin.js 是从预览界面复制下来的原文件, code.js 是除去前�
 
 code_decode.js 是解混淆后的 code.js, dict_format.js 是格式美化后的 dict.js
 
-详见 [README.md](./doc/codejs文件解混淆/README.md) 或B站专栏 [cv36277616](https://www.bilibili.com/read/cv36277616)
+详见 [README.md](./doc/codejs文件解混淆/README.md)
 
 ---
 
-#### [AccountDecode.py](AccountDecode.py)
+### [AccountDecode.py](AccountDecode.py)
 
-这个是雀魂账号的三种 id: `account_id`, `friend_id`, `match_id` 之间的转换
+这个是雀魂账号的三种 id: 账号id, 牌谱id, 好友id之间的转换
 
-加好友用的是 `friend_id`, 详见 [README.md](doc/如何通过牌谱链接加好友/README.md)
+加好友用的是"好友id", 详见 [README.md](doc/如何通过牌谱链接加好友/README.md)
 
 ---
 
-#### [MatchDecode.py](MatchDecode.py)
+### [MatchDecode.py](MatchDecode.py)
 
 这是是雀魂匿名牌谱与普通牌谱之间的转换脚本
 
-`dec_url` 表示普通牌谱, `enc_url` 表示匿名牌谱, `debug` 是转换模式
+`dec_url` 表示普通牌谱, `enc_url` 表示匿名牌谱
 
 要用的话直接在这个脚本里面改 `dec_url` 或 `enc_url` 的内容就行
 
-详见 [README.md](./doc/匿名牌谱与普通牌谱之间的转换/README.md) 或B站专栏 [cv36066023](https://www.bilibili.com/read/cv36066023)
+详见 [README.md](./doc/匿名牌谱与普通牌谱之间的转换/README.md)
 
 ---
 
-#### [doc 文件夹](./doc)
+### [doc 文件夹](./doc)
 
-四个文件夹, 对应四个从B站搬过来的四个专栏
+我从B站搬过来的几个专栏
 
 ---
 
-#### [paipu 文件夹](paipu)
+### [paipu 文件夹](paipu)
 
 GetPaipuJSON.js 文件就是这个专栏中提到在 Console 里输入的脚本: [README.md](./doc/牌谱里面到底记载了什么/README.md) 或B站专栏 [cv36373732](https://www.bilibili.com/read/cv36373732)
 
@@ -76,20 +76,10 @@ GetPaipuJSON.js 文件就是这个专栏中提到在 Console 里输入的脚本:
 
 ---
 
-#### [plugins 文件夹](plugins)
+### [plugins 文件夹](plugins)
 
 这里面有两个我觉得可以研究一下的插件: 我全都要(wqdy, 全角色皮肤解锁), 和解锁不同服称号
 
 ---
 
----
-
 另外欢迎阅读我在B站发的几篇与雀魂有关的专栏: [rl846240](https://www.bilibili.com/read/readlist/rl846240)
-
-以及关注 [我的B站空间](https://space.bilibili.com/372365985/)
-
----
-
-TODO:
-
-实现批量爬取牌谱的方法(尝试理解雀魂牌谱屋的原理)

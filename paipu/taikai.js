@@ -1,10 +1,10 @@
-function taikai(contestId = "1001") {
-    if (!contestId) {
-        contestId = prompt("Please Enter a contest ID.");
-    }
-    if (!contestId) {
+!(function () {
+    let contest_id = prompt("Please Enter a contest ID.");
+    if (!contest_id) {
+        console.log('User canceled input');
         return;
     }
+
     function download(data, fileName) {
         let a = document.createElement("a");
         a.href = URL.createObjectURL(
@@ -16,28 +16,34 @@ function taikai(contestId = "1001") {
         a.click();
         document.body.removeChild(a);
     }
+
     function sleep(msec) {
-        return new Promise(function(resolve) {setTimeout(function() {resolve();}, msec);});
+        return new Promise(function (resolve) {
+            setTimeout(function () {
+                resolve();
+            }, msec);
+        });
     }
-    function getContestDetail(contestId, uniqueId) {
+
+    function getContestDetail(uniqueId) {
         app.NetAgent.sendReq2Lobby(
             "Lobby",
             "enterCustomizedContest",
-            {unique_id:uniqueId},
-            function(error, contestDetail) {
-                download(contestDetail, "mahjongsoul_contest_" + contestId + "_detail.json");
+            {unique_id: uniqueId},
+            function (error, contestDetail) {
+                download(contestDetail, "mahjongsoul_contest_" + contest_id + "_detail.json");
             });
     }
-    async function getContestRecords(contestId, uniqueId) {
-        let uuidArray = new Array();
-        let loopEndFlag = false;
-        for (let i = 20;; i += 20) {
+
+    async function getContestRecords(uniqueId) {
+        let uuidArray = [], loopEndFlag = false;
+        for (let i = 20; !loopEndFlag; i += 20) {
             app.NetAgent.sendReq2Lobby(
                 "Lobby",
                 "fetchCustomizedContestGameRecords",
-                {unique_id:uniqueId, last_index:i},
-                function(error, contestRecords) {
-                    if (contestRecords.record_list.length == 0) {
+                {unique_id: uniqueId, last_index: i},
+                function (error, contestRecords) {
+                    if (contestRecords.record_list.length === 0) {
                         loopEndFlag = true;
                         return;
                     }
@@ -46,21 +52,20 @@ function taikai(contestId = "1001") {
                         console.log(i + "Downloading");
                     }
                 });
-            if (loopEndFlag) {
+            if (loopEndFlag)
                 break;
-            }
             await sleep(1000);
         }
-        download(uuidArray, "mahjongsoul_contest_" + contestId + "_uuid_list.json");
+        download(uuidArray, "mahjongsoul_contest_" + contest_id + "_uuid_list.json");
     }
+
     app.NetAgent.sendReq2Lobby(
         "Lobby",
         "fetchCustomizedContestByContestId",
-        {contest_id:contestId},
-        function(error, contestInfo) {
-            uniqueId = contestInfo.contest_info.unique_id;
-            getContestDetail(contestId, uniqueId);
-            getContestRecords(contestId, uniqueId);
+        {contest_id: contest_id},
+        function (error, contestInfo) {
+            let uniqueId = contestInfo.contest_info.unique_id;
+            getContestDetail(contest_id, uniqueId);
+            getContestRecords(contest_id, uniqueId);
         });
-}
-taikai()
+})();

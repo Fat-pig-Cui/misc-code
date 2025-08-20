@@ -5,5 +5,7 @@
   "author": "anon",
   "description": "Makes titles from other servers visible (as long as they exist on the current server)",
   "preview": "6.png",
-  "entry": ["title.js"]
+  "entry": [
+    "title.js"
+  ]
 }
